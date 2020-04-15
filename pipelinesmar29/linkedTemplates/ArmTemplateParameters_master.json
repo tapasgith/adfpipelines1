@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "pipelinesmar29"
+		},
+		"LS_Strg_Acct_Gen2_servicePrincipalKey": {
+			"value": ""
+		},
+		"LS_sqlserver_Onprem_connectionString": {
+			"value": ""
+		},
+		"LS_sqlserver_Onprem_password": {
+			"value": ""
+		},
+		"LS_Strg_Acct_Gen2_properties_typeProperties_url": {
+			"value": "https://tapasstorageaccountgen2.dfs.core.windows.net"
+		},
+		"LS_Strg_Acct_Gen2_properties_typeProperties_tenant": {
+			"value": "796d30a5-7801-472e-ba43-d09354b12297"
+		},
+		"LS_Strg_Acct_Gen2_properties_typeProperties_servicePrincipalId": {
+			"value": "595032c4-b237-4764-822d-89e1eeb6aab5"
+		},
+		"LS_sqlserver_Onprem_properties_typeProperties_userName": {
+			"value": "TapSwap"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

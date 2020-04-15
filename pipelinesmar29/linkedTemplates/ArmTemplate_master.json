@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "pipelinesmar29"
+		},
+		"LS_Strg_Acct_Gen2_servicePrincipalKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalKey' of 'LS_Strg_Acct_Gen2'"
+		},
+		"LS_sqlserver_Onprem_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_sqlserver_Onprem'"
+		},
+		"LS_sqlserver_Onprem_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_sqlserver_Onprem'"
+		},
+		"LS_Strg_Acct_Gen2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://tapasstorageaccountgen2.dfs.core.windows.net"
+		},
+		"LS_Strg_Acct_Gen2_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "796d30a5-7801-472e-ba43-d09354b12297"
+		},
+		"LS_Strg_Acct_Gen2_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "595032c4-b237-4764-822d-89e1eeb6aab5"
+		},
+		"LS_sqlserver_Onprem_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "TapSwap"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_Strg_Acct_Gen2_servicePrincipalKey": {
+						"value": "[parameters('LS_Strg_Acct_Gen2_servicePrincipalKey')]"
+					},
+					"LS_sqlserver_Onprem_connectionString": {
+						"value": "[parameters('LS_sqlserver_Onprem_connectionString')]"
+					},
+					"LS_sqlserver_Onprem_password": {
+						"value": "[parameters('LS_sqlserver_Onprem_password')]"
+					},
+					"LS_Strg_Acct_Gen2_properties_typeProperties_url": {
+						"value": "[parameters('LS_Strg_Acct_Gen2_properties_typeProperties_url')]"
+					},
+					"LS_Strg_Acct_Gen2_properties_typeProperties_tenant": {
+						"value": "[parameters('LS_Strg_Acct_Gen2_properties_typeProperties_tenant')]"
+					},
+					"LS_Strg_Acct_Gen2_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('LS_Strg_Acct_Gen2_properties_typeProperties_servicePrincipalId')]"
+					},
+					"LS_sqlserver_Onprem_properties_typeProperties_userName": {
+						"value": "[parameters('LS_sqlserver_Onprem_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
