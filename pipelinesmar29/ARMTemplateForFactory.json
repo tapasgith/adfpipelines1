@@ -77,12 +77,63 @@
 								"type": "DelimitedTextReadSettings"
 							}
 						}
+					},
+					{
+						"name": "usp_InsertLastModifiedDate",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Get_Metadata_Last",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[usp_InsertLastModifiedDate]",
+							"storedProcedureParameters": {
+								"Filename": {
+									"value": {
+										"value": "@activity('Get_Metadata_Last').output.itemName",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"ModifiedDate": {
+									"value": {
+										"value": "@activity('Get_Metadata_Last').output.lastModified",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								},
+								"RecordInsertedDate": {
+									"value": {
+										"value": "@utcnow()",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "LS_sqlserver_Onprem",
+							"type": "LinkedServiceReference"
+						}
 					}
 				],
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DS_Strg_Acct_Gen2')]"
+				"[concat(variables('factoryId'), '/datasets/DS_Strg_Acct_Gen2')]",
+				"[concat(variables('factoryId'), '/linkedServices/LS_sqlserver_Onprem')]"
 			]
 		},
 		{
