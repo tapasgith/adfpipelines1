@@ -1,0 +1,27 @@
+{
+	"name": "LastLoadDate",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sqlserver_Onprem",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "source",
+				"type": "nchar"
+			},
+			{
+				"name": "executionDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "controltable"
+		}
+	}
+}
