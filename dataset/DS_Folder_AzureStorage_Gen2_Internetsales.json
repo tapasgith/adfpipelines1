@@ -1,5 +1,5 @@
 {
-	"name": "DS_AzureStorage_Gen2_Internetsales",
+	"name": "DS_Folder_AzureStorage_Gen2_Internetsales",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Strg_Acct_Gen2",
@@ -15,7 +15,7 @@
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
-			"firstRowAsHeader": false,
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [

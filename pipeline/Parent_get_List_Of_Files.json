@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DS_AzureStorage_Gen2_Internetsales",
+						"referenceName": "DS_Folder_AzureStorage_Gen2_Internetsales",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -32,12 +32,29 @@
 				}
 			},
 			{
-				"name": "Execute Pipeline1",
+				"name": "Execute_Child_for_each",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Meta_Get_List_Of_Files",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
-					"waitOnCompletion": true
+					"pipeline": {
+						"referenceName": "Child_For_Each",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"FileList": {
+							"value": "@activity('Meta_Get_List_Of_Files').output.childitems",
+							"type": "Expression"
+						}
+					}
 				}
 			}
 		],
