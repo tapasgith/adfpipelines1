@@ -1,0 +1,11 @@
+{
+	"name": "Child_For_Each",
+	"properties": {
+		"parameters": {
+			"FileList": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
