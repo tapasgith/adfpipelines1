@@ -50,7 +50,7 @@
 					},
 					"waitOnCompletion": true,
 					"parameters": {
-						"FileList": {
+						"FileList6666": {
 							"value": "@activity('Meta_Get_List_Of_Files').output.childitems",
 							"type": "Expression"
 						}
