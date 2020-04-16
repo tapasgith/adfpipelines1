@@ -1,0 +1,29 @@
+{
+	"name": "sqldb_rt_cde",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sqlserver_Onprem",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "RateCodeID",
+				"type": "nchar"
+			},
+			{
+				"name": "RateCode",
+				"type": "nchar"
+			},
+			{
+				"name": "IsApproved",
+				"type": "nchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "sqldb_rt_cde"
+		}
+	}
+}
