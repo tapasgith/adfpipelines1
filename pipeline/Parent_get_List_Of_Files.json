@@ -32,7 +32,7 @@
 				}
 			},
 			{
-				"name": "Execute_Child_for_each",
+				"name": "Execute_Child_For_Each",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
@@ -50,7 +50,7 @@
 					},
 					"waitOnCompletion": true,
 					"parameters": {
-						"FileList6666": {
+						"FileList": {
 							"value": "@activity('Meta_Get_List_Of_Files').output.childitems",
 							"type": "Expression"
 						}
