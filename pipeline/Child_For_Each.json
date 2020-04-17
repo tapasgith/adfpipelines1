@@ -14,7 +14,7 @@
 					},
 					"activities": [
 						{
-							"name": "usp_Insert_Records",
+							"name": "usp_InsertRecords",
 							"type": "SqlServerStoredProcedure",
 							"dependsOn": [],
 							"policy": {
@@ -36,7 +36,10 @@
 										"type": "DateTime"
 									},
 									"filename": {
-										"value": "@{item().name}",
+										"value": {
+											"value": "@pipeline().parameters.FileList.item.name",
+											"type": "Expression"
+										},
 										"type": "String"
 									},
 									"status": {
