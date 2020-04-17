@@ -1,5 +1,5 @@
 {
-	"name": "MetaData_LookUp_LastModifiedDate",
+	"name": "MetaData_LookUp_LastModifiedDat",
 	"properties": {
 		"activities": [
 			{
@@ -58,7 +58,7 @@
 				}
 			},
 			{
-				"name": "ifcomp",
+				"name": "Check_If_File_Is_New",
 				"type": "IfCondition",
 				"dependsOn": [
 					{
@@ -182,7 +182,7 @@
 								"storedProcedureParameters": {
 									"ExecutionDate": {
 										"value": {
-											"value": "@utcnow()",
+											"value": "@pipeline().TriggerTime",
 											"type": "Expression"
 										},
 										"type": "DateTime"
