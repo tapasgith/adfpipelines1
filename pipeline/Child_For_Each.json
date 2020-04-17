@@ -56,7 +56,7 @@
 		],
 		"parameters": {
 			"FileList": {
-				"type": "string"
+				"type": "object"
 			}
 		},
 		"annotations": []
